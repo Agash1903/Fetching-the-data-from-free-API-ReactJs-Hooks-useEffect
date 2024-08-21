@@ -26,7 +26,8 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { useState,useEffect } from 'react';
+// import { useState,useEffect } from 'react';
+import EmployeeForm from './EmployeeForm';
 
 
 // function ExampleRender(){
@@ -47,36 +48,79 @@ import { useState,useEffect } from 'react';
 
 // ReactDOM.render(<ExampleRender />,document.getElementById("root"));
 
-function Userdemo(){
-    const [users,setUsers] = useState([]);
-    const [loading,setLoading] = useState(true);
+// function Userdemo(){
+//     const [users,setUsers] = useState([]);
+//     const [loading,setLoading] = useState(true);
 
-useEffect(()=>{
-fetch('https://jsonplaceholder.typicode.com/users')
-      .then(response => response.json())
-      .then(data =>{
-      setUsers(data);
-      setLoading(false);
-      })
-    .catch (error =>{
-        console.error("if it is not loading will be error message");
+// useEffect(()=>{
+// fetch('https://jsonplaceholder.typicode.com/users')
+//       .then(response => response.json())
+//       .then(data =>{
+//       setUsers(data);
+//       setLoading(false);
+//       })
+//     .catch (error =>{
+//         console.error("if it is not loading will be error message");
 
-        setLoading(false);
-    });
-},[]);
-    if(loading){
-        return <p>Loading.....</p>;
-    }
+//         setLoading(false);
+//     });
+// },[]);
+//     if(loading){
+//         return <p>Loading.....</p>;
+//     }
 
-    return(
-        <div>
-        <h1>List out the Users in API</h1>
-        <ol>
-            {users.map(user => (
-                <h2><li key={user.id}>{user.name}---{user.email}</li></h2>
-            ))}
-        </ol>
-        </div>
+//     return(
+//         <div>
+//         <h1>List out the Users in API</h1>
+//         <ol>
+//             {users.map(user => (
+//                 <h2><li key={user.id}>{user.name}---{user.email}</li></h2>
+//             ))}
+//         </ol>
+//         </div>
+//     );
+// }
+// ReactDOM.render(<Userdemo />,document.getElementById("root")) ;
+
+// const Ternary = (props) => {
+//     return (
+//         <div>
+//             {props.valid? <h2>You are valid User</h2> : <h2>You are invalid User</h2>}
+//         </div>
+//     )
+// }
+
+// // const Switch = ({user}) => {
+
+// //     switch (user) {
+// //         case "Dhana":
+// //             return (
+// //                 <h2>Welcome {user}</h2>
+// //             )
+// //             break;
+// //         case "Selvan":
+// //             return (
+// //                 <h2>Welcome {user}</h2>
+// //             )
+// //             break;
+// //         default:
+// //             return (
+// //                 <h2>You logged with the default user</h2>
+// //             )
+// //     }
+// // }
+
+// // export default Switch;
+
+function App() {
+    return (
+      <div >
+        <EmployeeForm/>
+        {/* <Switch user="Dhana" /> */}
+        {/* <Ternary valid="true" /> */}
+      </div>
     );
-}
-ReactDOM.render(<Userdemo />,document.getElementById("root")) ;
+  }
+  
+  export default App;
+  ReactDOM.render(<EmployeeForm/>,document.getElementById('root'));
